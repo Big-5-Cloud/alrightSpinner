@@ -13,3 +13,40 @@ Scientists, clinical psychologists and Salesforce MVPs might have agreed had we 
 ## But Really... What is this?
 
 It's just an alternative to the lightning-spinner base component that spins Matthew McConaughey's head around in place of the standard spinning circle image. I wish it were more than that, but isn't that enough?
+
+## How to Use
+
+In your LWC implementation, reference this component instead of the lightning-spinner base component.
+
+### Example
+```html
+<template>
+    <div class="slds-align-middle slds-align_absolute-center">
+        <template if:true={showModal}>
+            <div>
+                <c-alright-spinner size="large"></c-alright-spinner>
+            </div>
+        </template>
+
+        <lightning-button label="Click Me" onclick={handleClick} class="slds-m-around_small"></lightning-button>
+    </div>
+</template>
+```
+
+```javascript
+import {LightningElement, track} from 'lwc';
+
+export default class TestComponent extends LightningElement {
+
+    @track showModal = false;
+
+    handleClick(event) {
+        this.showModal = true;
+
+        setTimeout(() => {
+            this.showModal = false;
+        }, 5000);
+    }
+
+}
+```
