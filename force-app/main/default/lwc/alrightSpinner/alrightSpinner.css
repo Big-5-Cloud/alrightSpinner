@@ -13,7 +13,7 @@
 }
 
 .spinner img {
-    animation: spin 1s linear infinite;
+    animation: spin 1.25s linear infinite;
     opacity: 0.75;
 }
 
