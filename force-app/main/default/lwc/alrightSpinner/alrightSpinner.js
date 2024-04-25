@@ -4,10 +4,12 @@ import mattSpinner from '@salesforce/resourceUrl/mattSpinner';
 export default class AlrightSpinner extends LightningElement {
 
     @api size = 'large';
+    @api mode = 'spinner';
     spinnerImage = mattSpinner;
 
     get spinnerClass() {
-        return `spinner ${this.size}`;
+        let mode = this.mode.toLowerCase() === 'throbber' ? 'throbber' : 'spinner';
+        return `${mode} ${this.size}`;
     }
 
     handleKeyDown(event) {
